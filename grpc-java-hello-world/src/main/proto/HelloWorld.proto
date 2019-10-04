@@ -12,6 +12,39 @@ message Greeting {
   string message = 1;
 }
 
+message protoXML {
+  string xml = 1;
+  double time = 2;
+  string filename = 3;
+}
+
+message protoQuery {
+  repeated int32 id = 1;
+}
+
+message protoOwnerList {
+  message Owner {
+    message Car {
+      int32 id = 1;
+      string plate = 2;
+      string brand = 3;
+      int32 power = 4;
+      float consumption = 5;
+      int32 engine_size = 6;
+    }
+    int32 id = 1;
+    string name = 2;
+    int32 phone = 3;
+    string address = 4;
+    repeated Car car = 5;
+  }
+  repeated Owner owner = 1;
+  double time = 2;
+  string filename = 3;
+}
+
 service HelloWorldService {
   rpc sayHello (Person) returns (Greeting);
+  rpc askOwners (protoQuery) returns (protoOwnerList);
+  rpc askOwnersXML (protoQuery) returns (protoXML);
 }

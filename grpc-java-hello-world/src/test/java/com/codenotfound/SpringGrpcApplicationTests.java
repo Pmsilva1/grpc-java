@@ -17,7 +17,17 @@ public class SpringGrpcApplicationTests {
 
   @Test
   public void testSayHello() {
-    assertThat(helloWorldClient.sayHello("John", "Doe"))
-        .isEqualTo("Hello John Doe!");
+    /*assertThat(helloWorldClient.sayHello("John", "Doe"))
+        .isEqualTo("Hello John Doe!");*/
+        helloWorldClient.askOwners("1 3 5 6 7 10 15");
+        helloWorldClient.askOwners("2 4 8 9 11 12 13");
+        helloWorldClient.askOwners("14 20 15 21 16 22 17");
+        helloWorldClient.askOwners("18 23 19 24 25 30 26");
+
+
+
+
+        //helloWorldClient.askOwnersXML("5 3 10 15 20 35");
+
   }
 }
